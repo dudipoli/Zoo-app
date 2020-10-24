@@ -1,0 +1,80 @@
+.catalog-wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.catalog-results-wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-content: center;
+    width: 60%;
+}
+
+.animals {
+    border-bottom: solid 1px #F7F4F1;
+    padding: 10px;
+}
+
+.head {
+    background-color: azure;
+    padding: 10px;
+}
+
+.loading-wrapper {
+    margin-top: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.loading-wrapper>img {
+    width: 100px;
+    height: 100px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.animals .prop, .head .prop {
+    padding: 0 30px;
+}
+
+.animal-quantity{
+    width: 45px;
+}
+
+li.add-action{
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+li.add-action > div{
+    text-align: center;
+    align-items: center;
+}
+
+.add-action .prop{
+    padding: 0 30px;
+}
+.add-action span{
+    text-align: center;
+}
+.prop.link{
+    cursor: pointer;
+    color: blue;
+}
+
+.animals, .alert.alert-danger {
+    margin-top: 10px;
+}

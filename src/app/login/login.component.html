@@ -1,0 +1,31 @@
+<div class="login-form-wrapper">
+    <div class="head-wrapper">
+        <h2>Login</h2>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="email">User Name</label>
+            <input type="text" id="userName" class="form-control" formControlName="userName">
+        </div>
+        <div class="alert alert-danger" *ngIf="f.userName.invalid && (f.userName.touched || f.userName.dirty)">
+            Please enter a user name
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password">
+        </div>
+        <div class="alert alert-danger"
+            *ngIf="f.password.errors && f.password.errors.forbiddenPassword && (f.password.touched || f.password.dirty)">
+            Please enter a valid password
+        </div>
+
+        <div class="buttons-wrapper">
+            <button mat-button color="primary" class="btn btn-primary" type="submit">Login</button>
+        </div>
+        <div class="alert alert-danger" *ngIf="formError">
+            {{formError}}
+        </div>
+    </form>
+</div>

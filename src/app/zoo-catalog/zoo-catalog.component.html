@@ -1,0 +1,49 @@
+<div class="catalog-wrapper">
+    <div class="catalog-results-wrapper">
+        <div class="loading-wrapper" *ngIf="isLoading">
+            <img src="../../../assets/Loading.gif">
+        </div>
+
+        <ul>
+            <li class="head">
+                <div class="prop">ID</div>
+                <div class="prop">Name</div>
+                <div class="prop">Quantity</div>
+                <div class="prop">Actions</div>
+            </li>
+            <li class="add-action">
+                <div class="prop">
+                    <span>#</span>
+                </div>
+                <div class="new-animal" *ngIf="isEditMode && !enableEditIndex && enableEditIndex!==0">
+                    <input type="text" class="animal-name" [(ngModel)]="animalName" name="animalname">
+                </div>
+                <div class="new-animal" *ngIf="isEditMode && !enableEditIndex && enableEditIndex!==0">
+                    <input type="number" class="animal-quantity" [(ngModel)]="animalQuantity" name="animalquantity">
+                </div>
+                <div *ngIf="!isEditMode && !enableEditIndex" class="prop link" (click)="isEditMode=true">Add</div>
+                <div *ngIf="isEditMode && !enableEditIndex && enableEditIndex!==0" class="prop link"
+                    (click)="AddOrUpdateAnimal()">Confirm
+                </div>
+            </li>
+            <li class="animals" *ngFor="let animal of animals;index as i;">
+                <div class="prop">
+                    <span>{{animal.id}}</span>
+                </div>
+                <div class="prop">
+                    <span *ngIf="enableEditIndex !== i">{{animal.name}}</span>
+                    <input *ngIf="isEditMode && enableEditIndex == i" type="text" class="animal-name"
+                        [(ngModel)]="animalName" name="animalname">
+                </div>
+                <div class="prop">
+                    <span *ngIf="enableEditIndex !== i">{{animal.quantity}}</span>
+                    <input *ngIf="isEditMode && enableEditIndex == i" type="number" class="animal-quantity"
+                        [(ngModel)]="animalQuantity" name="animalquantity">
+                </div>
+                <div class="prop link" *ngIf="enableEditIndex !== i" (click)="enableEditMethod(animal,i)">Edit</div>
+                <div class="prop link" *ngIf="isEditMode && enableEditIndex == i" (click)="AddOrUpdateAnimal(i+1)">
+                    Confirm</div>
+            </li>
+        </ul>
+    </div>
+</div>
